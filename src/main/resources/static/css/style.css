@@ -1,0 +1,201 @@
+/* ==========================================================================
+   1. UTING ENGINE TAILWIND v4 & CONFIG CORE
+   ========================================================================== */
+
+
+/* Mengaktifkan deteksi dinamis class .dark pada elemen HTML untuk Tailwind v4 */
+@variant dark (&:where(.dark, .dark *));
+
+/* --- PALET WARNA AKSEN ANIME UI NEON --- */
+:root {
+    --anime-cyan: #00D2FF;
+    --anime-teal: #006B85;
+    --anime-pink: #FF007F;
+    --anime-purple: #A855F7;
+    --anime-green: #39FF14;
+    --card-shadow-light: 0 8px 30px rgba(0, 107, 133, 0.03);
+    --card-shadow-dark: 0 8px 30px rgba(0, 210, 255, 0.06);
+}
+
+/* ==========================================================================
+   2. TRANSISI DINAMIS GLOBAL & SCROLLBAR
+   ========================================================================== */
+/* Memastikan perubahan background dan teks saat toggle theme berjalan smooth */
+body, div, h4, span, button, input {
+    transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                color 0.3s ease;
+}
+
+/* --- KUSTOMISASI SCROLLBAR PREMIUM --- */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+.dark ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--anime-teal);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: var(--anime-cyan);
+}
+
+/* ==========================================================================
+   3. ATURAN ROW TUGAS DINAMIS (RENDERED BY APP.JS)
+   ========================================================================== */
+/* Card wrapper dibebaskan dari display kaku agar responsive utility Tailwind bekerja sempurna */
+.task-card {
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--card-shadow-light);
+    animation: fadeInUp 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.15) forwards;
+}
+
+.dark .task-card {
+    box-shadow: var(--card-shadow-dark);
+}
+
+/* Efek Hover Interaktif & Glow Border Khas Anime UI */
+.task-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 107, 133, 0.08);
+}
+.dark .task-card:hover {
+    box-shadow: 0 12px 30px rgba(0, 210, 255, 0.15);
+    background: #151b2e !important; /* Efek highlight tipis saat hover di mode gelap */
+}
+
+/* Kustomisasi Animasi Checkbox */
+.task-checkbox {
+    accent-color: var(--anime-teal);
+    transform: scale(1);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.task-checkbox:hover {
+    transform: scale(1.15);
+}
+.dark .task-checkbox {
+    accent-color: var(--anime-cyan);
+}
+
+/* --- BADGE CATEGORY & EISENHOWER NEO-GLOW --- */
+.tag-category {
+    font-weight: 800;
+}
+
+/* Red / Urgent */
+.tag-urgent, [data-matrix="do-first"] {
+    background: rgba(255, 0, 127, 0.08) !important;
+    color: var(--anime-pink) !important;
+    border: 1px solid rgba(255, 0, 127, 0.15) !important;
+}
+.dark .tag-urgent, .dark [data-matrix="do-first"] {
+    background: rgba(255, 0, 127, 0.15) !important;
+    color: #ff66b2 !important;
+    border: 1px solid rgba(255, 0, 127, 0.3) !important;
+}
+
+/* Cyan / Schedule */
+.tag-schedule, [data-matrix="schedule"] {
+    background: rgba(0, 210, 255, 0.08) !important;
+    color: #0099cc !important;
+}
+.dark .tag-schedule, .dark [data-matrix="schedule"] {
+    background: rgba(0, 210, 255, 0.12) !important;
+    color: var(--anime-cyan) !important;
+    border: 1px solid rgba(0, 210, 255, 0.25) !important;
+}
+
+/* ==========================================================================
+   4. TOMBOL AKSI INTERAKTIF & TOAST SYSTEM
+   ========================================================================== */
+.action-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.action-btn:hover {
+    transform: translateY(-1px) scale(1.08);
+}
+.action-btn:active {
+    transform: scale(0.92);
+}
+
+/* --- TOAST CONTAINER CONFIG --- */
+#toastContainer {
+    perspective: 1000px;
+}
+
+/* ==========================================================================
+   5. KUSTOMISASI FULLCALENDAR HIGH-DEFINITION
+   ========================================================================== */
+.fc {
+    --fc-border-color: #e2e8f0;
+    --fc-button-bg-color: #006B85;
+    --fc-button-border-color: #006B85;
+    --fc-button-hover-bg-color: #005266;
+    --fc-button-active-bg-color: #004050;
+}
+.dark .fc {
+    --fc-border-color: #1e293b;
+    --fc-page-bg-color: #0f172a;
+    --fc-neutral-bg-color: #1e293b;
+}
+.fc .fc-toolbar-title {
+    font-size: 1.1rem !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+.fc .fc-button {
+    font-size: 0.75rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    border-radius: 0.5rem !important;
+    letter-spacing: 0.025em;
+}
+.fc .fc-col-header-cell-cushion {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #64748b;
+}
+.dark .fc .fc-col-header-cell-cushion {
+    color: #94a3b8;
+}
+.fc-event {
+    border-radius: 0.5rem !important;
+    padding: 4px 8px !important;
+    font-size: 0.7rem !important;
+    font-weight: 800 !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+.fc-event:hover {
+    transform: translateY(-1px) scale(1.03);
+    box-shadow: 0 6px 15px rgba(0, 210, 255, 0.2);
+}
+
+/* ==========================================================================
+   6. ANIMASI CORE SYSTEM
+   ========================================================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

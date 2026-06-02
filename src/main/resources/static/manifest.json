@@ -1,0 +1,33 @@
+{
+  "id": "/index.html",
+  "short_name": "SmartTodo",
+  "name": "Smart Todo Management App",
+  "icons": [
+    {
+      "src": "/app-icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "screenshots": [
+    {
+      "src": "/app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Desktop view"
+    },
+    {
+      "src": "/app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile view"
+    }
+  ]
+}
