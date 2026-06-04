@@ -1,4 +1,4 @@
-const CACHE_NAME = 'smart-todo-v2';
+const CACHE_NAME = 'smart-todo-v3';
 const ASSETS = [
   '/',
   '/index.html',
