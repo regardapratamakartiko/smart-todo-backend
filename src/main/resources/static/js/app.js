@@ -273,14 +273,14 @@ async function loadTasks() {
                 return matrixValue === 'do-first';
             });
         } else if (activeFilter === 'all') {
-            tasks = murniBelumSelesai;
+            // Mengubah dari murniBelumSelesai menjadi rawTasks agar semua tugas muncul
+            tasks = rawTasks; 
         } else {
             tasks = murniBelumSelesai.filter(t => {
                 const matrixValue = t.matrix ? t.matrix.toLowerCase().trim() : '';
                 return matrixValue === activeFilter;
             });
         }
-
         // =================================================================
         // URUTAN DATA (SORTING)
         // =================================================================
